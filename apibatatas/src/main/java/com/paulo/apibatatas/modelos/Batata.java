@@ -16,35 +16,36 @@ import jakarta.validation.constraints.Positive;
 
 @Entity
 @Table(name = "tb_batatas")
-public final class Batata {
+public class Batata {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private long id;
 
 	@Column(name = "nome_variedade")
-	@NotBlank(message = "O campo de nome da variedade é obrigatória.")
+	@NotBlank(message = "O campo de nome da variedade é obrigatório.")
 	private String nomeVariedade;
 
 	@Column(name = "tamanho_centimetros")
-	@Positive
+	@Positive(message = "O tamanho deve ser maior que zero.")
 	private double tamanhoCentimetros;
 
 	@Column(name = "massa_quilogramas")
-	@Positive
+	@Positive(message = "A massa deve ser maior que zero.")
 	private double massaQuilogramas;
 
 	@Column(name = "tempo_amadurecimento_dias")
-	@Positive
+	@Positive(message = "A quantidade de dias deve ser maior que zero.")
 	private int tempoAmadurecimentoDias;
 
 	@Column(name = "foi_geneticamente_alterada")
-	@NotNull
+	@NotNull(message = "O campo de geneticamente alterada é obrigatório.")
 	private boolean foiGeneticamenteAlterada;
 	
 	@Column(name = "forma")
 	@Enumerated(EnumType.STRING)
-	@NotNull
+	@NotNull(message = "O campo de forma é obrigatório.")
 	private FormaBatata forma;
 
 	public String getNomeVariedade() {
