@@ -3,11 +3,11 @@ package com.paulo.apibatatas.repositorios;
 import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
 import com.paulo.apibatatas.modelos.Batata;
 
-import jakarta.validation.Valid;
-
+@Repository
 public interface BatataRepositorio extends CrudRepository<Batata, Long>{
 	
 	/**
@@ -25,7 +25,7 @@ public interface BatataRepositorio extends CrudRepository<Batata, Long>{
 	/**
 	 * Salva ou altera um registro de batata.
 	 */
-	<Bat extends Batata> Bat save(@Valid Bat batata);
+	<Bat extends Batata> Bat save(Bat batata);
 	
 	/**
 	 * Deleta um registro de batata pelo id.
