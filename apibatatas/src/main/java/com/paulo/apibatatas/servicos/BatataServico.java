@@ -41,7 +41,7 @@ public class BatataServico {
 		return new ResponseEntity<>(repositorio.save(batata), HttpStatus.OK);
 	}
 	
-	public ResponseEntity<?> deletar(long id) {
+	public ResponseEntity<?> deletarPorId(long id) {
 		
 		if (!repositorio.existsById(id)) {
 			return new ResponseEntity<>("Não existe uma batata com este id.", HttpStatus.BAD_REQUEST);
