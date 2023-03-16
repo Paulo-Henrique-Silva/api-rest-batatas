@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import com.paulo.apibatatas.modelos.Batata;
 
 @Repository
-public interface BatataRepositorio extends CrudRepository<Batata, Long>{
+public interface BatataRepositorio extends CrudRepository<Batata, Long> {
 	
 	/**
 	 * Seleciona todos os registros de batatas.
