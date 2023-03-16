@@ -4,6 +4,9 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Column;
@@ -70,6 +73,7 @@ public class Batata {
 		joinColumns = @JoinColumn(name = "batata_id"),
 		inverseJoinColumns = @JoinColumn(name = "receita_id")
 	)
+	@OnDelete(action = OnDeleteAction.CASCADE) //após a batata ser deletada, os preparos que contêm sua fk são deletados.
 	private List<Preparo> preparos = new ArrayList<>();
 
 	//getters e setters

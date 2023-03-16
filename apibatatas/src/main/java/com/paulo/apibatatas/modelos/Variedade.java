@@ -3,6 +3,9 @@ package com.paulo.apibatatas.modelos;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.paulo.apibatatas.enums.CorBatata;
 
@@ -44,6 +47,7 @@ public class Variedade {
 	//atributos de relacionamentos
 	@OneToMany(mappedBy = "variedade")
 	@JsonIgnore
+	@OnDelete(action = OnDeleteAction.CASCADE)
 	private List<Batata> batatas = new ArrayList<>();
 	
 	//getters e setters

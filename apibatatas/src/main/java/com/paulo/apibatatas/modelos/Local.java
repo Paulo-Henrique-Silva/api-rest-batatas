@@ -3,6 +3,9 @@ package com.paulo.apibatatas.modelos;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Column;
@@ -39,6 +42,7 @@ public class Local {
 	//atributos de relacionamentos
 	@OneToMany(mappedBy = "local")
 	@JsonIgnore
+	@OnDelete(action = OnDeleteAction.NO_ACTION) //nesse caso, uma batata sem local é considerada uma batata de origem desconhecida
 	private List<Batata> batatas = new ArrayList<>();
 	
 	//getters e setters

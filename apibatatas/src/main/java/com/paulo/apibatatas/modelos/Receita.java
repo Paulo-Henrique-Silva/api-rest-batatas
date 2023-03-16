@@ -3,6 +3,9 @@ package com.paulo.apibatatas.modelos;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.paulo.apibatatas.enums.FormaBatata;
 
@@ -44,6 +47,7 @@ public class Receita {
 	//atributos de relacionamentos
 	@ManyToMany(mappedBy = "receita")
 	@JsonIgnore
+	@OnDelete(action = OnDeleteAction.CASCADE)
 	private List<Preparo> preparos = new ArrayList<>();
 
 	//getters e setters

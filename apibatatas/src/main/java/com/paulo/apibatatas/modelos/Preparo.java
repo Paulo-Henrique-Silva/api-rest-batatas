@@ -11,6 +11,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 
 @Entity
 @Table(name = "tb_preparos")
@@ -34,6 +35,7 @@ public class Preparo {
 	
 	@Column(name = "tempo_minutos")
 	@NotNull(message = "O campo de tempo é obrigatório.")
+	@Positive(message = "A tempo deve ser maior que zero.")
 	private int tempoMinutos;
 	
 	@Column(name = "data_preparo")
