@@ -20,7 +20,7 @@ public class LocalServico {
 	
 	public ResponseEntity<?> verPorId(long id) {
 		
-		//checa se existe a variedade especificada no parâmetro.
+		//checa se existe o local especificado no parâmetro.
 		if (!localRepositorio.existsById(id)) {
 			return new ResponseEntity<>("Não existe um local com este id.", HttpStatus.BAD_REQUEST);
 		}
